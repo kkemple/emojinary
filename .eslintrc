@@ -9,6 +9,7 @@
     "max-len": [2, 120, 4],
     "quotes": [2, "single", "avoid-escape"],
     "curly": [2, "all"],
-    "strict": [0]
+    "strict": [0],
+    "camelcase": [0]
   }
 }
