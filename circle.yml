@@ -1,15 +1,11 @@
 machine:
   node:
     version: 0.12.0
-  environment:
-    AWS_ACCESS_KEY_ID: AKIAICTG7E2XY6YPGFWA
-    AWS_SECRET_ACCESS_KEY: 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
 
 deployment:
   elasticbeanstalk:
     branch: master
     commands:
-      #- sudo bash ./bin/circle-ci-aws-creds.sh
       - pip install awsebcli
       - eb init emojinary -r us-west-2 -p Docker
       - eb deploy emojinary -l $CIRCLE_SHA1
