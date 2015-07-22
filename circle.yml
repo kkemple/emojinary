@@ -8,4 +8,5 @@ deployment:
     commands:
       - sudo bash ./bin/circle-ci-aws-creds.sh
       - pip install awsebcli
+      - eb init emojinary -r us-west-2 -p Docker
       - eb deploy emojinary -l $CIRCLE_SHA1
