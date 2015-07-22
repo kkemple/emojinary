@@ -1,5 +1,5 @@
 # Logs
-.log
+*.log
 
 # Coverage directory used by tools like istanbul
 coverage
