@@ -1,7 +1,7 @@
 #! /bin/bash
 
 # set up credentials
-
+mkdir ~/.aws
 touch ~/.aws/config
 chmod 600 ~/.aws/config
 
