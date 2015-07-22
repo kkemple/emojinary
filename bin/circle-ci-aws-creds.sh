@@ -1,10 +1,9 @@
 #! /bin/bash
 
 # set up credentials
-mkdir ~/.aws
-touch ~/.aws/config
-chmod 600 ~/.aws/config
+mkdir ~/.elasticbeanstalk
+touch ~/.elasticbeanstalk/aws_credential_file
+chmod 600 ~/.elasticbeanstalk/aws_credential_file
 
-echo "[profile eb-cli]" >> ~/.aws/config
-echo "aws_access_key_id = $AWS_ACCESS_KEY_ID" >> ~/.aws/config
-echo "aws_secret_access_key = $AWS_SECRET_KEY" >> ~/.aws/config
+echo "AWSAccessKeyId=$AWS_ACCESS_KEY_ID" >> ~/.elasticbeanstalk/aws_credential_file
+echo "AWSSecretKey=$AWS_SECRET_KEY" >> ~/.elasticbeanstalk/aws_credential_file
