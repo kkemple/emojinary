@@ -8,7 +8,8 @@ machine:
     DATABASE_USER: ubuntu
 
 test:
-  override: node ./node_modules/.bin/_mocha --compilers js:babel/register
+  override:
+    - node ./node_modules/.bin/_mocha --compilers js:babel/register
 
 deployment:
   elasticbeanstalk:
