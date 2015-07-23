@@ -1,6 +1,14 @@
 machine:
   node:
     version: 0.12.0
+  services:
+    - postgresql
+  environment:
+    DATABASE_NAME: circle_test
+    DATABASE_USER: ubuntu
+
+test:
+  override: node ./node_modules/.bin/_mocha --compilers js:babel/register
 
 deployment:
   elasticbeanstalk:

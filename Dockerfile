@@ -13,8 +13,4 @@ RUN cd /src; npm install
 
 EXPOSE  8080
 
-ENV DATABASE_HOST emojinary.c5awfmpmbqkj.us-west-2.rds.amazonaws.com
-ENV DATABASE_PORT 5432
-ENV DATABASE_NAME emojinary_prod
-
 CMD ["node", "/src/index.js"]
