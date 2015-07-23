@@ -5,7 +5,7 @@ CREATE TABLE team (
 );
 
 CREATE TABLE emojinary (
-  id integer PRIMARY KEY DEFAULT nextval('serial')
+  id integer PRIMARY KEY DEFAULT nextval('serial'),
   team_id                     text,
   team_domain                 text,
   channel_id                  text,
