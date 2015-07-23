@@ -1,7 +1,7 @@
 CREATE TABLE team (
   id                          text PRIMARY KEY,
   slack_integration_token     text,
-  slack_webhook_url           text,
+  slack_webhook_url           text
 );
 
 CREATE TABLE emojinary (
