@@ -19,7 +19,7 @@ describe('POST :: /', () => {
           user_id: 'U2147483697',
           user_name: 'kurt',
           command: '/emojinary',
-          text: 'new emojinary=[:smile: :camera:] hint=[smile for the camera!] answer=[selfie]'
+          text: ''
         }
       }, (res) => {
         expect(res.result).to.equal('Emojinary set! :smile:');
