@@ -13,6 +13,7 @@ describe('POST :: /', () => {
         payload: {
           token: 'test',
           team_id: 'T001',
+          team_domain: 'test',
           channel_id: 'C2147483705',
           channel_name: 'test',
           user_id: 'U2147483697',
