@@ -7,9 +7,13 @@ machine:
     DATABASE_NAME: circle_test
     DATABASE_USER: ubuntu
 
+database:
+  post:
+    - psql -U $DATABASE_USER -d $DATABASE_NAME -a -f ./seed/seed.sql
+
 test:
   override:
-    - node ./node_modules/.bin/_mocha --compilers js:babel/register
+    - node NODE_ENV=test ./node_modules/.bin/_mocha --compilers js:babel/register
 
 deployment:
   elasticbeanstalk:
