@@ -2,7 +2,7 @@
   "name": "emojinary",
   "version": "1.0.0",
   "description": "pictionary with emoji! - slack integration",
-  "main": "startup.js",
+  "main": "index.js",
   "scripts": {
     "test": "./bin/test.sh",
     "lint": "./bin/lint.sh"
