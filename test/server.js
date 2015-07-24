@@ -6,7 +6,7 @@ const expect = chai.expect;
 
 describe('POST :: /', () => {
   describe('action :: new', () => {
-    it('should return a creation phrase for successfully creating a Emojinary', (done) => {
+    it('should return a creation phrase for successfully creating a Emojinary', () => {
       // server.inject({
       //   method: 'POST',
       //   url: '/',
