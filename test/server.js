@@ -23,7 +23,6 @@ describe('POST :: /', () => {
         }
       }, (res) => {
         expect(res.result).to.equal('Emojinary set! :smile:');
-        expect(true).to.equal(true);
         done();
       });
     });
