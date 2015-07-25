@@ -21,3 +21,5 @@ CREATE TABLE emojinary (
   created_at                  timestamp,
   updated_at                  timestamp
 );
+
+INSERT INTO team (id, slack_integration_token) VALUES ('T001', 'test');
