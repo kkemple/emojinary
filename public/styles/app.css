@@ -69,12 +69,23 @@ section.pitch {
 }
 
 section.pitch h2 {
-  font-size: 34px;
+  font-size: 48px;
   margin: 60px auto;
 }
 
+section.pitch h3 {
+  font-size: 36px;
+}
+
 section.pitch h4 {
+  font-size: 24px;
   margin-bottom: 5px;
+}
+
+section.pitch h5 {
+  font-size: 20px;
+  margin-bottom: 5px;
+  margin-left: 15px;
 }
 
 section.pitch h3,
@@ -85,14 +96,15 @@ section.pitch h5 {
 }
 
 section.pitch h2 img {
-  height: 40px;
-  margin-bottom: -0.05em;
+  height: 55px;
+  margin-bottom: -0.07em;
   margin-left: 5px;
   vertical-align: text-bottom;
 }
 
 section.pitch ul {
   list-style: none;
+  margin-left: 15px;
   padding-left: 15px;
 }
 
