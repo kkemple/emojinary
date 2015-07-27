@@ -13,4 +13,6 @@ RUN cd /src; npm install
 
 EXPOSE  8080
 
-CMD ["node", "/src/index.js"]
+WORKDIR /src
+
+CMD ["node", "index.js"]
