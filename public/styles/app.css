@@ -1,5 +1,4 @@
 body {
-  /*background: #f7f7f7;*/
   color: #3B434B;
   display: flex;
   flex-direction: column;
@@ -36,13 +35,50 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
 }
 
+header {
+  border-bottom: 1px solid #f1f1f1;
+  display: flex;
+  justify-content: space-between;
+}
+
+header a {
+  color: #9b59b6;
+  text-decoration: none;
+  transform: color 0.3s linear;
+}
+
+header a:hover {
+  color: #8e44ad;
+}
+
 header h1 {
   background: #ffffff;
-  border-bottom: 1px solid #f1f1f1;
   color: #9b59b6;
   font-size: 24px;
   margin: 0;
   padding: 15px;
+}
+
+header nav {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+}
+
+header nav ul {
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+}
+
+header nav ul li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+header nav ul li:last-child {
+  margin-right: 0;
 }
 
 section[role="main"] {
@@ -58,7 +94,8 @@ section.billboard {
 }
 
 section.billboard img {
-  margin: 0 10px;
+  margin: 0 10px 10px;
+  width: 40px;
 }
 
 section.pitch {

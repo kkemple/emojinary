@@ -10,8 +10,31 @@
     <link href="/styles/app.css" rel="stylesheet" type="text/css">
   </head>
   <body>
+    {{#if message}}
+      <div class="message">
+        {{ message }}
+      </div>
+    {{/if}}
+
+    {{#if errorMessage }}
+      <div class="message error">
+        {{ errorMessage }}
+      </div>
+    {{/if}}
     <header>
-      <h1 class="branding">emojinary!</h1>
+      <h1 class="branding"><a href="/">emojinary!</a></h1>
+      <nav>
+        <ul>
+          <li><a href="/setup">Setup</a></li>
+          <li><a href="/pricing">Pricing</a></li>
+          <li><a href="/faq">FAQ</a></li>
+          {{#if loggedIn}}
+            <li><a href="/logout?team_id{{ user.id }}">Logout</a><li>
+          {{else}}
+            <li><a href="/login">Login</a><li>
+          {{/if}}
+        </ul>
+      </nav>
     </header>
     <section role="main">
       {{{ content }}}
