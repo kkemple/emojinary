@@ -6,6 +6,8 @@ machine:
   environment:
     DATABASE_NAME: circle_test
     DATABASE_USER: ubuntu
+    REDIS_HOST: localhost
+    REDIS_PORT: 6379
 
 database:
   post:

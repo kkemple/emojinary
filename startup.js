@@ -17,4 +17,7 @@ server
     if (!err) { server.start(); }
   });
 
-server.start();
+server.start((err) => {
+  if (err) { server.log(err); }
+  else { server.log('server started...'); }
+});
