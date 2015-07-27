@@ -33,7 +33,7 @@ footer a:hover {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 300;
+  font-weight: 400;
 }
 
 header h1 {
@@ -92,7 +92,6 @@ section.pitch h3,
 section.pitch h4,
 section.pitch h5 {
   color: #9b59b6;
-  font-weight: 400;
 }
 
 section.pitch h2 img {
