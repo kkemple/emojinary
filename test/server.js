@@ -4,12 +4,12 @@ import server from '../lib/server';
 
 const expect = chai.expect;
 
-describe('POST :: /', () => {
+describe('POST :: /emojinary', () => {
   describe('action :: new', () => {
     it('should return a creation phrase for successfully creating a Emojinary', (done) => {
       server.inject({
         method: 'POST',
-        url: '/',
+        url: '/emojinary',
         payload: {
           token: 'test',
           team_id: 'T001',
