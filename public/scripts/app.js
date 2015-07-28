@@ -2,6 +2,14 @@
 
 (function () {
   $(function () {
+    $('body').on('click', '.close-message', function(e) {
+      e.preventDefault();
+
+      $(e.target)
+        .parent()
+          .remove();
+    });
+
     emojify.setConfig({
       emojify_tag_type: 'div',
       only_crawl_id: null,

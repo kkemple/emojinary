@@ -1,0 +1,135 @@
+<section class="wrapper setup">
+  <h2>Setting up the slash command</h2>
+  <div class="instructions">
+    <div class="instruction">
+      <h3>Go to your team settings</h3>
+      <p>In the main menu for your team, choose <code>Configure Integrations</code></p>
+      <img src="/images/instructions/configure-integration-menu-option.png" alt="" />
+    </div>
+    <div class="instruction">
+      <h3>View slash commands</h3>
+      <p>
+        Scroll to the bottom of the "All Services" tab.<br />
+        In the <b>DIY Integrations &amp; Customizations</b> section, find <b>Slash Commands</b> and click <b>View</b>.
+      </p>
+      <img src="/images/instructions/view-slash-commands.png" alt="" />
+    </div>
+    <div class="instruction">
+      <h3>Create a new slash command</h3>
+      <p>
+        Enter <code>/emojinary</code> for the command name and click <b>Add Slash Command Integration</b>.
+      </p>
+      <img src="/images/instructions/create-emojinary-command.png" alt="" />
+    </div>
+    <div class="instruction">
+      <h3>Configure integration settings</h3>
+      <p>
+        After you save the new <code>/slash</code> command you will need to configure the settings for it.
+      </p>
+      <p>
+        For the <b>URL</b> enter <code>http://emojinary.releasable.io/emojinary</code>
+      </p>
+      <p>
+        For the <b>Method</b> select <code>POST</code><br />
+      </p>
+
+
+      <p>
+        Next copy the <b>Token</b> provided to you by Slack in to the form and register your token.<br />
+        <small>(This token is used to verify your team.)</small>
+      </p>
+
+      <form action="/settings/slack/slashtoken" class="integration-token">
+        {{#if user.slack_integration_token}}
+          <input type="text" value={{user.slack_integration_token}}>
+        {{else}}
+          <input type="text" value="" disabled="disabled">
+        {{/if}}
+
+        {{#if user.slack_integration_token}}
+          <button type="submit">Update Token</button>
+        {{else}}
+          <button type="submit">Register Token</button>
+        {{/if}}
+      </form>
+
+      <img src="/images/instructions/integration-settings.png" alt="" />
+    </div>
+    <div class="instruction">
+      <h3>Configure integration preferences</h3>
+      <p>
+        Choose whether or not you want the command to show up in auto-complete.<br />
+        Set a descriptive label and command hints.<br />
+        Click <b>Save Integration</b>
+      </p>
+      <img src="/images/instructions/integration-preferences.png" alt="" />
+    </div>
+  </div>
+
+  <h2>Setting up the incoming webhook</h2>
+  <div class="instructions">
+    <div class="instruction">
+      <h3>Go to your team settings</h3>
+      <p>
+        In the main menu for your team, choose <code>Configure Integrations</code>
+      </p>
+      <img src="/images/instructions/configure-integration-menu-option.png" alt="" />
+    </div>
+    <div class="instruction">
+      <h3>View incoming webhooks</h3>
+      <p>
+        Scroll to the bottom of the "All Services" tab.<br />
+        In the <b>DIY Integrations &amp; Customizations</b> section, find <b>Incoming WebHooks</b> and click <b>View</b>.
+      </p>
+      <img src="/images/instructions/view-incoming-webhooks.png" alt="" />
+    </div>
+    <div class="instruction">
+      <h3>Pick a channel</h3>
+      <p>
+        Pick the channel you want notifications to come to by either selecting an option from the menu, or by creating a new channel.<br />
+        Click <b>Add Incoming WebHooks Integration</b>
+      </p>
+      <img src="/images/instructions/picking-webhook-channel.png" alt="" />
+    </div>
+    <div class="instruction">
+      <h3>Configure webhook integration settings</h3>
+      <p>
+        If you would like, add a <b>Descriptive Label</b>.
+      </p>
+      <p>
+        Click <b>Save Settings</b>.<br />
+        <small>(Don't worry about any of the other information, that will be taken care of for you :smile:.)</small>
+      </p>
+      <p>
+        Next, copy the <b>Webhook URL</b> provided to you by Slack in to the form and register the url.
+      </p>
+
+      <form action="/settings/slack/hookurl" class="integration-token">
+        {{#if user.slack_webhook_url}}
+          <input type="text" value={{user.slack_webhook_url}}>
+        {{else}}
+          <input type="text" value="" disabled="disabled">
+        {{/if}}
+
+        {{#if user.slack_webhook_url}}
+          <button type="submit">Update URL</button>
+        {{else}}
+          <button type="submit">Register URL</button>
+        {{/if}}
+      </form>
+
+      <img src="/images/instructions/configure-webhook-settings.png" alt="" />
+    </div>
+  </div>
+
+  <h2>Testing the integration</h2>
+  <div class="instructions">
+    <div class="instruction">
+      <h3>Go to any channel</h3>
+      <p>Now try out some <b>emojinary</b> <code>/slash</code> commands! :smile:</p>
+      <p>
+        If you experience any errors or unexpected behavior, go over the steps again and make sure that all the information is correct. If the issue still persists, please contact me at <a href="mailto:emojinary.support@releasable.io">emojinary.support@releasable.io</a>.
+      </p>
+    </div>
+  </div>
+</section>

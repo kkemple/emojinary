@@ -1,5 +1,9 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
-  color: #3B434B;
+  color: #3b434b;
   display: flex;
   flex-direction: column;
   font-family: 'Lato', sans-serif;
@@ -13,6 +17,29 @@ code {
   border-radius: 4px;
   font-family: 'Source Code Pro', sans-serif;
   padding: 4px 6px;
+}
+
+div.message {
+  background-color: #1abc9c;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  text-transform: uppercase;
+}
+
+div.message.error {
+  background-color: #c0392b;
+}
+
+div.message a {
+  color: #ffffff;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+div.message a:hover {
+  color: #ffffff;
 }
 
 footer {
@@ -150,4 +177,73 @@ section.pitch ul li {
 
 section.pitch .slash-commands .slash-command {
   margin-bottom: 50px;
+}
+
+section.setup h2 {
+  border-bottom: 2px solid #9b59b6;
+  color: #9b59b6;
+  font-size: 36px;
+  margin: 60px 0;
+  padding: 0 0 15px;
+}
+
+section.setup h3 {
+  color: #9b59b6;
+  font-size: 28px;
+}
+
+section.setup code {
+  color: #3b434b;
+}
+
+section.setup img {
+  border: 1px solid #9b59b6;
+  max-width: 100%;
+}
+
+section.setup .instruction {
+  margin-bottom: 90px;
+}
+
+section.setup .instruction form {
+  display: flex;
+  margin: 20px 0;
+}
+
+section.setup .instruction form input[type="text"] {
+  border: 1px solid #9b59b6;
+  color: #9b59b6;
+  flex: 2;
+  margin-right: 30px;
+  padding: 10px 14px;
+}
+
+section.setup .instruction form button {
+  background-color: #9b59b6;
+  border: none;
+  color: #ffffff;
+  outline: none;
+  padding: 10px 14px;
+  text-transform: uppercase;
+  transition: background-color 0.3s linear;
+}
+
+section.setup .instruction form button:hover {
+  background-color: #79458e;
+}
+
+section.wrapper {
+  margin: 0 auto 60px;
+  max-width: 800px;
+  padding: 0 20px;
+}
+
+section.wrapper a {
+  color: #3498db;
+  text-decoration: none;
+  transform: color 0.3s linear;
+}
+
+section.wrapper a:hover {
+  color: #297CB3;
 }

@@ -14,23 +14,27 @@
     {{#if message}}
       <div class="message">
         {{ message }}
+        <a href="#" class="close-message">x</a>
       </div>
     {{/if}}
 
     {{#if errorMessage }}
       <div class="message error">
         {{ errorMessage }}
+        <a href="#" class="close-message">x</a>
       </div>
     {{/if}}
     <header>
       <h1 class="branding"><a href="/">emojinary!</a></h1>
       <nav>
         <ul>
-          <li><a href="/setup">Setup</a></li>
-          <li><a href="/pricing">Pricing</a></li>
-          <li><a href="/faq">FAQ</a></li>
           {{#if loggedIn}}
-            <li><a href="/logout?team_id{{ user.id }}">Logout</a><li>
+            <li><a href="/setup">Setup</a></li>
+          {{/if}}
+          <li><a href="/pricing">Pricing</a></li>
+          <!-- <li><a href="/faq">FAQ</a></li> -->
+          {{#if loggedIn}}
+            <li><a href="/logout?team_id={{ user.id }}">Logout</a><li>
           {{else}}
             <li><a href="/login">Login</a><li>
           {{/if}}
