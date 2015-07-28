@@ -1,6 +1,6 @@
-import commandParser from './command-parser';
-import emojinary from './emojinary';
-import auth from './auth';
+import commandParser from '../lib/command-parser';
+import emojinary from '../lib/emojinary';
+import auth from '../lib/auth';
 
 export default {
   landing (request, reply) {

@@ -1,6 +1,6 @@
 import yar from 'yar';
 
-import server from './lib/server';
+import server from './app/server';
 
 server
   .register([

@@ -1,6 +1,6 @@
 import joi from 'joi';
 
-import auth from './auth';
+import auth from '../lib/auth';
 import handlers from './handlers';
 
 export default [
