@@ -68,8 +68,10 @@
         </p>
       </div>
     </div>
-    <div class="call-to-action">
-      <a href="/login">Integrate with Slack</a>
-    </div>
+    {{#unless loggedIn}}
+      <div class="call-to-action">
+        <a href="/login">Integrate with Slack</a>
+      </div>
+    {{/unless}}
   </section>
 </section>

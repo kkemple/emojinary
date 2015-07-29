@@ -1,1 +1,41 @@
-<div></div>
+<section class="wrapper settings">
+  <h2>Settings</h2>
+  <div class="setting">
+    <form action="/settings/slack/token" data-id="{{ user.id }}" class="integration-token">
+      <legend>Slack slash command token</legend>
+      {{#if user.slack_integration_token}}
+        <input type="text" value={{user.slack_integration_token}}>
+      {{else}}
+        <input type="text" value="">
+      {{/if}}
+
+      {{#if user.slack_integration_token}}
+        <button type="submit">Update Token</button>
+      {{else}}
+        <button type="submit">Register Token</button>
+      {{/if}}
+    </form>
+  </div>
+  <div class="setting">
+    <form action="/settings/slack/webhook" data-id="{{ user.id }}" class="integration-webhook">
+      <legend>Slack incoming webhook URL</legend>
+      {{#if user.slack_webhook_url}}
+        <input type="text" value={{user.slack_webhook_url}}>
+      {{else}}
+        <input type="text" value="">
+      {{/if}}
+
+      {{#if user.slack_webhook_url}}
+        <button type="submit">Update URL</button>
+      {{else}}
+        <button type="submit">Register URL</button>
+      {{/if}}
+    </form>
+  </div>
+  <div class="setting">
+    <form action="/settings/account/delete" data-id="{{ user.id }}" class="integration-webhook">
+      <legend>Danger Zone</legend>
+      <button type="submit" class="delete-account">Delete Account</button>
+    </form>
+  </div>
+</section>

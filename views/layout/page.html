@@ -27,34 +27,40 @@
     {{/if}}
     <header>
       <h1 class="branding"><a href="/">emojinary!</a></h1>
+      {{#unless loggedIn}}
       <nav>
         <ul>
-          {{#if loggedIn}}
-            <li>
-              <a href="/setup">Setup</a>
-            </li>
-          {{/if}}
           <li>
             <a href="/pricing">Pricing</a>
           </li>
           <!-- <li><a href="/faq">FAQ</a></li> -->
-          {{#if loggedIn}}
+          <li>
+            <a href="/login">Login</a>
+          </li>
+        </ul>
+      </nav>
+      {{else}}
+      <div class="account">
+        {{ user.user_name }}
+        <a href="/settings" title="account-menu">
+          <img src="{{ user.avatar }}" class="avatar" alt="profile picture" />
+        </a>
+
+        <div class="account-menu inactive">
+          <ul>
+            <li>
+              <a href="/setup">Setup</a>
+            </li>
+            <li>
+              <a href="/settings">Settings</a>
+            </li>
             <li>
               <a href="/logout?team_id={{ user.id }}">Logout</a>
             </li>
-            <li class="account">
-              {{ user.user_name }}
-              <a href="/settings" title="Settings">
-                <img src="{{ user.avatar }}" class="avatar" alt="profile picture" />
-              </a>
-            </li>
-          {{else}}
-            <li>
-              <a href="/login">Login</a>
-            </li>
-          {{/if}}
-        </ul>
-      </nav>
+          </ul>
+        </div>
+      </div>
+      {{/unless}}
     </header>
     <section role="main">
       {{{ content }}}

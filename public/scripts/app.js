@@ -25,6 +25,16 @@
           .remove();
     });
 
+    $('body').on('click', '.account > a', function(e) {
+      e.preventDefault();
+
+      var $accountBtn = $(this);
+      var $accountContainer = $accountBtn.parent();
+      var $accountMenu = $accountContainer.find('.account-menu');
+
+      $accountMenu.toggleClass('inactive');
+    });
+
     $('form.integration-token').on('submit', function (e) {
       e.preventDefault();
 

@@ -121,22 +121,61 @@ header nav ul li:last-child {
   margin-right: 0;
 }
 
-header nav ul li.account {
+header .account {
   align-items: center;
   display: flex;
   margin-left: 30px;
+  position: relative;
 }
 
-header nav ul li.account a {
+header .account a {
   display: flex;
   width: 60px;
 }
 
-header nav ul li.account a img {
-  border: 1px solid #f1f1f1;
+header .account a img {
   border-radius: 50%;
+  cursor: pointer;
   height: 30px;
   margin-left: 10px;
+}
+
+header .account .account-menu {
+  background-color: #ffffff;
+  box-shadow: 0 3px 6px 2px rgba(0, 0, 0, 0.1);
+  min-width: 150px;
+  padding: 0;
+  position: absolute;
+  right: 15px;
+  top: 90%;
+}
+
+header .account .account-menu.inactive {
+  display: none;
+}
+
+header .account .account-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+header .account .account-menu ul li {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: stretch;
+  align-items: center;
+}
+
+header .account .account-menu ul li a {
+  display: block;
+  padding: 15px;
+  width: 100%;
+}
+
+header .account .account-menu ul li a:hover {
+  background: #f7f7f7;
 }
 
 section[role="main"] {
@@ -245,16 +284,23 @@ section.setup img {
   max-width: 100%;
 }
 
-section.setup .instruction {
+section.setup .instruction,
+section.settings .setting {
   margin-bottom: 90px;
 }
 
-section.setup .instruction form {
+section.setup .instruction form,
+section.settings .setting form {
   display: flex;
   margin: 20px 0;
 }
 
-section.setup .instruction form input[type="text"] {
+section.settings .setting form {
+  flex-wrap: wrap;
+}
+
+section.setup .instruction form input[type="text"],
+section.settings .setting form input[type="text"] {
   border: 1px solid #9b59b6;
   color: #9b59b6;
   flex: 2;
@@ -262,7 +308,8 @@ section.setup .instruction form input[type="text"] {
   padding: 10px 14px;
 }
 
-section.setup .instruction form button {
+section.setup .instruction form button,
+section.settings .setting form button {
   background-color: #9b59b6;
   border: none;
   color: #ffffff;
@@ -272,8 +319,30 @@ section.setup .instruction form button {
   transition: background-color 0.3s linear;
 }
 
-section.setup .instruction form button:hover {
+section.setup .instruction form button:hover,
+section.settings .setting form button:hover {
   background-color: #79458e;
+}
+
+section.settings .setting form button.delete-account {
+  background-color: #e74c3c;
+}
+
+section.settings .setting form button.delete-account:hover {
+  background-color: #c0392b;
+}
+
+section.settings h2 {
+  color: #9b59b6;
+  font-size: 36px;
+  margin-bottom: 40px;
+}
+
+section.settings .setting form legend {
+  color: #9b59b6;
+  font-size: 24px;
+  margin-bottom: 10px;
+  width: 100%;
 }
 
 section.wrapper {

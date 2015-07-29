@@ -5,13 +5,10 @@ export default () => {
     ['100', 'umbrella', 'ocean', 'boat'],
     ['it', 'horse', 'facepunch', 'ru'],
     ['smile', 'camera'],
-    ['cop', 'camera', 'rage', 'hocho', 'astonished', 'astonished', 'astonished', 'ocean', 'boat'],
     ['calendar', 'last_quarter_moon_with_face', 'bulb', 'football'],
     ['person_with_blond_hair', 'wrench', 'battery', 'nut_and_bolt'],
     ['confused', 'bell', 'notes', 'question'],
     ['person_with_blond_hair', 'telephone', 'telephone'],
-    ['new_moon', 'bulb', 'rainbow', 'ocean', 'earth_africa', 'seedling',
-      'sunflower', 'deciduous_tree', 'rabbit', 'goat', 'man', 'woman', 'apple', 'snake', 'disappointed'],
     ['computer', 'sunglasses', 'raised_hand', 'gun'],
     ['fire', 'bathtub', 'watch', 'computer']
   ];
