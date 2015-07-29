@@ -32,6 +32,21 @@
       {{/if}}
     </form>
   </div>
+  {{#unless user.active}}
+    <div class="setting">
+      <form action="/settings/account" data-id="{{ user.id }}" class="account-removal">
+        <legend>Upgrade to Pro</legend>
+        <button type="submit">Upgrade Account</button>
+      </form>
+    </div>
+  {{else}}
+    <div class="setting">
+      <form action="/settings/account" data-id="{{ user.id }}" class="account-removal">
+        <legend>Cancel Pro Account</legend>
+        <button type="submit" class="cancel-pro">Cancel Pro</button>
+      </form>
+    </div>
+  {{/unless}}
   <div class="setting">
     <form action="/settings/account" data-id="{{ user.id }}" class="account-removal">
       <legend>Danger Zone</legend>

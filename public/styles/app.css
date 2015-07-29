@@ -179,7 +179,9 @@ header .account .account-menu ul li a:hover {
 }
 
 section[role="main"] {
+  display: flex;
   flex: 2;
+  flex-direction: column;
 }
 
 section.billboard {
@@ -245,21 +247,86 @@ section.pitch .slash-commands .slash-command {
   margin-bottom: 75px;
 }
 
-section.pitch .call-to-action {
+section .call-to-action {
   text-align: center;
 }
 
-section.pitch .call-to-action a {
+section .call-to-action a {
   background-color: #9b59b6;
-  color: #ffffff;
+  color: #ffffff !important;
   padding: 10px 14px;
   text-transform: uppercase;
   transition: background-color 0.3s linear;
 }
 
-section.pitch .call-to-action a:hover {
+section .call-to-action a:hover {
   background-color: #79458e;
-  color: #ffffff;
+  color: #ffffff !important;
+}
+
+section.wrapper.pricing {
+  margin: auto;
+  width: 60%;
+  max-width: 100%;
+}
+
+@media screen and (max-width: 1299px) {
+  section.wrapper.pricing {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 999px) {
+  section.wrapper.pricing {
+    width: 94%;
+  }
+}
+
+section.pricing {
+  align-self: stretch;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+section.pricing > p,
+section.pricing > .call-to-action {
+  margin-top: 90px;
+  text-align: center;
+  width: 100%;
+}
+
+section.pricing .pricing-table {
+  width: 46%;
+}
+
+section.pricing .pricing-table h2 {
+  border-bottom: 2px solid #9b59b6;
+  color: #9b59b6;
+  font-size: 36px;
+  margin-bottom: 20px;
+  padding: 0 0 15px;
+  text-align: center;
+}
+
+section.pricing .pricing-table ul {
+  list-style: none;
+  padding: 0;
+}
+
+section.pricing .pricing-table ul li {
+  color: #9b59b6;
+  font-size: 24px;
+  padding: 20px 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+section.pricing .pricing-table ul li code {
+  display: inline-block;
+  margin-top: 15px;
+  text-transform: none;
 }
 
 section.setup h2 {
