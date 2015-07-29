@@ -65,8 +65,11 @@ export default {
   },
 
   updateSlackIntegrationToken (request, reply) {
-    new Team({ id: request.payload.team_id })
+    var team = new Team({ id: request.payload.team_id });
+
+    team
       .save({ slack_integration_token: request.payload.token }, { patch: true })
+      .then(() => team.fetch())
       .then((updatedTeam) => {
         const user = updatedTeam.toJSON();
 
@@ -78,8 +81,11 @@ export default {
   },
 
   updateSlackWebhookUrl (request, reply) {
-    new Team({ id: request.payload.team_id})
+    var team = new Team({ id: request.payload.team_id });
+
+    team
       .save({ slack_webhook_url: request.payload.url }, { patch: true })
+      .then(() => team.fetch())
       .then((updatedTeam) => {
         const user = updatedTeam.toJSON();
 
@@ -139,7 +145,6 @@ export default {
               .type('text/plain');
           })
           .catch((response) => {
-            console.log(response);
             reply(response)
               .type('text/plain');
           });
@@ -167,5 +172,55 @@ export default {
           });
         break;
     }
+  },
+
+  deleteAccount (request, reply) {
+    // ideally ....
+    // find team
+    // if not exist error
+    // if exists copy to JSON in cache
+    // get emojinary collection
+    // if exists copy to JSON in cache
+    // destroy emojinary
+    // destroy team
+    // clear cache
+    // redirect with message
+    // if fail at any steps reset db using cached values
+
+    new Team({ id: request.payload.team_id })
+      .fetch()
+      .then((team) => {
+        if (!team) {
+          reply(new Error({
+            name: 'TeamNotFound',
+            message: 'Unable to find team!'
+          }));
+
+          return;
+        }
+
+        team
+          .emojinary()
+          .fetch()
+          .then((collection) => {
+            return collection
+              .invokeThen('destroy')
+              .then(() => {
+
+                return team
+                  .destroy()
+                  .then(() => {
+
+                    request.session.set({
+                      message: 'Account successfully removed',
+                      loggedIn: false,
+                      user: undefined
+                    });
+
+                    reply('account removed');
+                  });
+              });
+          });
+      });
   }
 };

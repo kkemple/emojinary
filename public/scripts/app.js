@@ -113,6 +113,43 @@
       });
     });
 
+    $('form.account-removal').on('submit', function (e) {
+      e.preventDefault();
+
+      if (!window.confirm('Are you sure you want to remove your account?')) {
+        return;
+      }
+
+      var $form = $(this);
+      var $input = $form.children('input[type="text"]');
+      var $button = $form.children('button[type="submit"]');
+
+      if ($input.val() === '') { return; }
+
+      var origButtonText = $button.text();
+      $button.text('Removing account...');
+      $button.prop('disabled', true);
+
+      $.ajax({
+        url: $form.attr('action'),
+        method: 'DELETE',
+        contentType: 'application/json',
+        data: JSON.stringify({
+          team_id: $form.attr('data-id')
+        })
+      })
+      .done(function () {
+        window.location = window.location.origin;
+      })
+      .fail(function (xhr) {
+        $button.text(origButtonText);
+        $button.prop('disabled', false);
+
+        showErrorMessage(xhr.responseJSON.error + ': ' + xhr.responseJSON.error);
+        $('body').scrollTop(0);
+      });
+    });
+
     emojify.setConfig({
       emojify_tag_type: 'div',
       only_crawl_id: null,

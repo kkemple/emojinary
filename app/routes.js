@@ -57,6 +57,11 @@ export default [
     config: configs.updateSlackWebhookUrl
   },
   {
+    method: 'DELETE',
+    path: '/settings/account',
+    config: configs.deleteAccount
+  },
+  {
     method: 'POST',
     path: '/emojinary',
     config: configs.slashCommand

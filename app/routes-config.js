@@ -106,5 +106,16 @@ export default {
       }
     },
     handler: auth.validate(handlers.updateSlackWebhookUrl)
+  },
+
+  deleteAccount: {
+    tags: ['api', 'danger', 'auth', 'settings', 'account'],
+    description: 'Endpoint for removing an emojinary! account',
+    validate: {
+      payload: {
+        team_id: joi.string().required()
+      }
+    },
+    handler: auth.validate(handlers.deleteAccount)
   }
 };
