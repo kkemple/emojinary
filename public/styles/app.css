@@ -12,11 +12,34 @@ body {
   width: 100vw;
 }
 
+footer {
+  color: #bbbbbb;
+  height: 40px;
+  text-align: center;
+}
+
+footer a {
+  color: #3498db;
+  text-decoration: none;
+  transform: color 0.3s linear;
+}
+
+footer a:hover {
+  color: #297CB3;
+}
+
 code {
-  background-color: #f5f5f5;
+  background-color: #f1f1f1;
+  border: 1px solid #ebebeb;
   border-radius: 4px;
   font-family: 'Source Code Pro', sans-serif;
   padding: 4px 6px;
+}
+
+@media screen and (max-width: 550px) {
+  code {
+    font-size: 10px;
+  }
 }
 
 div.message {
@@ -42,21 +65,9 @@ div.message a:hover {
   color: #ffffff;
 }
 
-footer {
-  color: #bbbbbb;
-  height: 40px;
-  text-align: center;
-}
-
-footer a {
-  color: #3498db;
-  text-decoration: none;
-  transform: color 0.3s linear;
-}
-
-footer a:hover {
-  color: #297CB3;
-}
+div.message span a {
+  border-bottom: 1px solid #ffffff;
+};
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
@@ -94,6 +105,8 @@ header nav {
 }
 
 header nav ul {
+  align-items: center;
+  display: flex;
   list-style: none;
   margin: 0;
   padding-left: 0;
@@ -101,11 +114,29 @@ header nav ul {
 
 header nav ul li {
   display: inline-block;
-  margin: 0 10px;
+  margin: auto 10px;
 }
 
 header nav ul li:last-child {
   margin-right: 0;
+}
+
+header nav ul li.account {
+  align-items: center;
+  display: flex;
+  margin-left: 30px;
+}
+
+header nav ul li.account a {
+  display: flex;
+  width: 60px;
+}
+
+header nav ul li.account a img {
+  border: 1px solid #f1f1f1;
+  border-radius: 50%;
+  height: 30px;
+  margin-left: 10px;
 }
 
 section[role="main"] {
@@ -125,20 +156,15 @@ section.billboard img {
   width: 40px;
 }
 
-section.pitch {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
 section.pitch h2 {
   font-size: 48px;
-  margin: 60px auto;
+  margin: 60px auto 75px;
+  text-align: center;
 }
 
 section.pitch h3 {
   font-size: 36px;
+  margin-bottom: 40px;
 }
 
 section.pitch h4 {
@@ -172,11 +198,29 @@ section.pitch ul {
 }
 
 section.pitch ul li {
-  margin-bottom: 15px;
+  line-height: 30px;
+  margin-bottom: 30px;
 }
 
 section.pitch .slash-commands .slash-command {
-  margin-bottom: 50px;
+  margin-bottom: 75px;
+}
+
+section.pitch .call-to-action {
+  text-align: center;
+}
+
+section.pitch .call-to-action a {
+  background-color: #9b59b6;
+  color: #ffffff;
+  padding: 10px 14px;
+  text-transform: uppercase;
+  transition: background-color 0.3s linear;
+}
+
+section.pitch .call-to-action a:hover {
+  background-color: #79458e;
+  color: #ffffff;
 }
 
 section.setup h2 {
@@ -246,4 +290,8 @@ section.wrapper a {
 
 section.wrapper a:hover {
   color: #297CB3;
+}
+
+section.wrapper.landing {
+  max-width: 600px;
 }

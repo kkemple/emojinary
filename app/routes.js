@@ -1,74 +1,64 @@
-import joi from 'joi';
-
-import auth from '../lib/auth';
-import handlers from './handlers';
+import configs from './routes-config';
 
 export default [
   {
     method: 'GET',
     path: '/{path*}',
-    handler: {
-      directory: {
-        path: './public',
-        listing: false,
-        index: true
-      }
-    }
+    config: configs.staticAssets
   },
   {
     method: 'GET',
     path: '/',
-    handler: handlers.landing
+    config: configs.landing
   },
   {
     method: 'GET',
     path: '/setup',
-    handler: auth.validate(handlers.setup)
+    config: configs.setup
   },
   {
     method: 'GET',
     path: '/pricing',
-    handler: handlers.pricing
+    config: configs.pricing
   },
   {
     method: 'GET',
     path: '/faq',
-    handler: handlers.faq
+    config: configs.faq
+  },
+  {
+    method: 'GET',
+    path: '/settings',
+    config: configs.settings
   },
   {
     method: 'GET',
     path: '/login',
-    handler: handlers.login
+    config: configs.login
   },
   {
     method: 'GET',
     path: '/logout',
-    handler: handlers.logout
+    config: configs.logout
   },
   {
     method: 'GET',
     path: '/oauth/slack/callback',
-    handler: handlers.authCallback
+    config: configs.slackOauthCallback
+  },
+  {
+    method: 'PATCH',
+    path: '/settings/slack/token',
+    config: configs.updateSlackIntegrationToken
+  },
+  {
+    method: 'PATCH',
+    path: '/settings/slack/webhook',
+    config: configs.updateSlackWebhookUrl
   },
   {
     method: 'POST',
     path: '/emojinary',
-    config: {
-      validate: {
-        payload: {
-          user_name: joi.string().required(),
-          user_id: joi.string(),
-          team_id: joi.string(),
-          team_domain: joi.string(),
-          channel_id: joi.string(),
-          channel_name: joi.string(),
-          token: joi.string(),
-          text: joi.string().allow(''),
-          command: joi.string()
-        }
-      },
-
-      handler: handlers.command
-    }
+    config: configs.slashCommand
   }
 ];

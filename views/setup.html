@@ -39,11 +39,11 @@
         <small>(This token is used to verify your team.)</small>
       </p>
 
-      <form action="/settings/slack/slashtoken" class="integration-token">
+      <form action="/settings/slack/token" data-id="{{ user.id }}" class="integration-token">
         {{#if user.slack_integration_token}}
           <input type="text" value={{user.slack_integration_token}}>
         {{else}}
-          <input type="text" value="" disabled="disabled">
+          <input type="text" value="">
         {{/if}}
 
         {{#if user.slack_integration_token}}
@@ -98,17 +98,17 @@
       </p>
       <p>
         Click <b>Save Settings</b>.<br />
-        <small>(Don't worry about any of the other information, that will be taken care of for you :smile:.)</small>
+        <small>(Don't worry about any of the other information, that will be taken care of for you :smile: )</small>
       </p>
       <p>
         Next, copy the <b>Webhook URL</b> provided to you by Slack in to the form and register the url.
       </p>
 
-      <form action="/settings/slack/hookurl" class="integration-token">
+      <form action="/settings/slack/webhook" data-id="{{ user.id }}" class="integration-webhook">
         {{#if user.slack_webhook_url}}
           <input type="text" value={{user.slack_webhook_url}}>
         {{else}}
-          <input type="text" value="" disabled="disabled">
+          <input type="text" value="">
         {{/if}}
 
         {{#if user.slack_webhook_url}}

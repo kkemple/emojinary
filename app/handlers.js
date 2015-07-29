@@ -1,6 +1,7 @@
+import auth from '../lib/auth';
 import commandParser from '../lib/command-parser';
 import emojinary from '../lib/emojinary';
-import auth from '../lib/auth';
+import Team from '../models/team';
 
 export default {
   landing (request, reply) {
@@ -39,6 +40,15 @@ export default {
     });
   },
 
+  settings (request, reply) {
+    reply.view('settings', {
+      message: request.session.get('message', true),
+      errorMessage: request.session.get('errorMessage', true),
+      loggedIn: request.session.get('loggedIn'),
+      user: request.session.get('user')
+    });
+  },
+
   login (request, reply) {
     reply.redirect(auth.getAuthUrl());
   },
@@ -54,12 +64,40 @@ export default {
       reply.redirect('/');
   },
 
+  updateSlackIntegrationToken (request, reply) {
+    new Team({ id: request.payload.team_id })
+      .save({ slack_integration_token: request.payload.token }, { patch: true })
+      .then((updatedTeam) => {
+        const user = updatedTeam.toJSON();
+
+        request.session.set('user', user);
+
+        reply(user);
+      })
+      .catch(reply);
+  },
+
+  updateSlackWebhookUrl (request, reply) {
+    new Team({ id: request.payload.team_id})
+      .save({ slack_webhook_url: request.payload.url }, { patch: true })
+      .then((updatedTeam) => {
+        const user = updatedTeam.toJSON();
+
+        request.session.set('user', user);
+
+        reply(user);
+      })
+      .catch(reply);
+  },
+
   authCallback (request, reply) {
     auth
       .login(request.query.code)
       .then((user) => {
         request.session.set({
-          message: 'Login successful!',
+          message: '<span>Login successful! ' +
+            '<a href="/setup">setup</a> ' +
+            'your emojinary Slack integrations!</span>',
           loggedIn: true,
           user: user
         });

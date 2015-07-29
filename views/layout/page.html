@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Emojinary</title>
     <link rel="shortcut icon" href="/images/emoji/smile.png" type="image/x-icon" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" rel="stylesheet" type="text/css">
@@ -13,14 +14,14 @@
   <body>
     {{#if message}}
       <div class="message">
-        {{ message }}
+        {{{ message }}}
         <a href="#" class="close-message">x</a>
       </div>
     {{/if}}
 
     {{#if errorMessage }}
       <div class="message error">
-        {{ errorMessage }}
+        {{{ errorMessage }}}
         <a href="#" class="close-message">x</a>
       </div>
     {{/if}}
@@ -29,14 +30,28 @@
       <nav>
         <ul>
           {{#if loggedIn}}
-            <li><a href="/setup">Setup</a></li>
+            <li>
+              <a href="/setup">Setup</a>
+            </li>
           {{/if}}
-          <li><a href="/pricing">Pricing</a></li>
+          <li>
+            <a href="/pricing">Pricing</a>
+          </li>
           <!-- <li><a href="/faq">FAQ</a></li> -->
           {{#if loggedIn}}
-            <li><a href="/logout?team_id={{ user.id }}">Logout</a><li>
+            <li>
+              <a href="/logout?team_id={{ user.id }}">Logout</a>
+            </li>
+            <li class="account">
+              {{ user.user_name }}
+              <a href="/settings" title="Settings">
+                <img src="{{ user.avatar }}" class="avatar" alt="profile picture" />
+              </a>
+            </li>
           {{else}}
-            <li><a href="/login">Login</a><li>
+            <li>
+              <a href="/login">Login</a>
+            </li>
           {{/if}}
         </ul>
       </nav>

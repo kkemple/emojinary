@@ -1,58 +1,75 @@
 <section class="billboard">
   {{{ emojinary }}}
 </section>
-<section class="pitch">
-  <h2>Pictionary with emoji, right in <img src="/images/slack-logo.png"></h2>
-  <div class="slash-commands">
-    <h3>Slash Commands</h3>
+<section class="wrapper landing">
+  <section class="pitch">
+    <h2>Pictionary with emoji,<br />right in <img src="/images/slack-logo.png"></h2>
+    <div class="slash-commands">
+      <h3>Slash Commands</h3>
 
-    <div class="slash-command">
-      <h4>/emojinary</h4>
-      <p>
-        Calling <code>emojinary</code> by itself will call <code>/emojinary current</code>.
-      </p>
+      <div class="slash-command">
+        <h4>/emojinary</h4>
+        <p>
+          Calling <code>emojinary</code> by itself will call <code>/emojinary current</code>.
+        </p>
+      </div>
+
+      <div class="slash-command">
+        <h4>/emojinary new</h4>
+        <p>
+          Use the <code>new</code> command to create a new emojinary for your team to solve.
+        </p>
+        <p>
+          <code>/emojinary new emojinary=[] hint=[] answer=[]</code>
+        </p>
+
+        <h5>Options</h5>
+        <ul class="options">
+          <li>
+            <b>emojinary</b> (required): the emoji string that makes up your emojinary<br />
+            <code>emojinary=[:flag-it: :horse: :punch: :flag-ru:]</code>
+          </li>
+          <li>
+            <b>answer</b> (required): the answer to your emojinary (<i>helpful hint: spell out numbers!</i>)<br />
+            <code>answer=[rocky four]</code>
+          </li>
+          <li>
+            <b>hint</b> (optional): a helpful hint for your team<br />
+            <code>hint=[i must break you!]</code>
+          </li>
+        </ul>
+      </div>
+
+      <div class="slash-command">
+        <h4>/emojinary current</h4>
+        <p>
+          Use the <code>current</code> command to see the current emojinary in play.<br />
+          If there isn't one in play, it will return the result of the last solved emojinary if there is one.
+        </p>
+      </div>
+
+      <div class="slash-command">
+        <h4>/emojinary hint</h4>
+        <p>
+          If you're having a tough time, use the <code>hint</code> command to see if there is a clue.
+        </p>
+        <p>
+          <code>/emojinary hint <i>=> i must break you!</i></code>
+        </p>
+      </div>
+
+      <div class="slash-command">
+        <h4>/emojinary solve</h4>
+        <p>
+          Use the <code>solve</code> command once you're ready to take a crack at an emojinary.
+        </p>
+        <p>
+          <code>/emojinary solve rocky four</code>
+        </p>
+      </div>
     </div>
-
-    <div class="slash-command">
-      <h4>/emojinary new</h4>
-      <p>
-        Use the <code>new</code> command to create a new emojinary for your team to solve.
-      </p>
-      <p>
-        <code>/emojinary new emojinary=[] hint=[] answer=[]</code>
-      </p>
-
-      <h5>Options</h5>
-      <ul class="options">
-        <li><b>emojinary</b> (required): the emoji string that makes up your emojinary <code>emojinary=[:flag-it: :horse: :punch: :flag-ru:]</code></li>
-        <li><b>answer</b> (required): the answer to your emojinary (<i>helpful hint: always spell out numbers in answers!</i>) <code>answer=[rocky four]</code></li>
-        <li><b>hint</b> (optional): a helpful hint for your team <code>hint=[i must break you!]</code></li>
-      </ul>
+    <div class="call-to-action">
+      <a href="/login">Integrate with Slack</a>
     </div>
-
-    <div class="slash-command">
-      <h4>/emojinary current</h4>
-      <p>
-        Use the <code>current</code> command to see the current emojinary in play.<br />
-        If there isn't one in play, it will return the result of the last solved emojinary if there is one.
-      </p>
-    </div>
-
-    <div class="slash-command">
-      <h4>/emojinary hint</h4>
-      <p>
-        Use the <code>hint</code> command to see if the current emojinary has a clue if you're having a tough time figuring one out.
-      </p>
-    </div>
-
-    <div class="slash-command">
-      <h4>/emojinary solve</h4>
-      <p>
-        Use the <code>solve</code> command once you're ready to take a crack at an emojinary.
-      </p>
-      <p>
-        <code>/emojinary solve rocky four</code>
-      </p>
-    </div>
-  </div>
+  </section>
 </section>
