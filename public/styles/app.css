@@ -258,11 +258,22 @@ section .call-to-action a:hover {
   color: #ffffff !important;
 }
 
-
 section.pitch h2 {
   font-size: 48px;
   margin: 60px auto 75px;
   text-align: center;
+}
+
+section.pitch h2 span {
+  color: #9b59b6;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 798px) {
+  section.pitch h2 span {
+    margin-top: 60px;
+  }
 }
 
 section.pitch h3 {
@@ -289,7 +300,7 @@ section.pitch h5 {
 
 section.pitch h2 img {
   height: 55px;
-  margin-bottom: -0.07em;
+  margin-bottom: -0.19em;
   margin-left: 5px;
   vertical-align: text-bottom;
 }
