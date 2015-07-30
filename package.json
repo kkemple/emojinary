@@ -33,6 +33,7 @@
     "hapi-swagger": "^0.7.3",
     "joi": "^6.6.0",
     "knex": "^0.8.6",
+    "lodash.filter": "^3.1.1",
     "lodash.foreach": "^3.0.3",
     "lodash.map": "^3.1.4",
     "newrelic": "^1.21.1",

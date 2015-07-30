@@ -68,7 +68,7 @@ server.ext('onPreResponse', (request, reply) => {
   const req = request.response;
 
   if (req.isBoom && req.output.statusCode === 404) {
-    reply.view('index', { errorMessage: 'Whoops! Wrong turn! 404' });
+    reply.redirect('/');
     return;
   }
 
