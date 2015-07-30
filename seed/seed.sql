@@ -12,6 +12,12 @@ CREATE TABLE team (
   updated_at                  timestamp
 );
 
+CREATE TABLE user_stats (
+  id                          text PRIMARY KEY,
+  attempts                    integer,
+  solved                      integer
+);
+
 CREATE TABLE emojinary (
   id                          serial PRIMARY KEY,
   team_id                     text,
@@ -25,9 +31,16 @@ CREATE TABLE emojinary (
   answer                      text,
   hint                        text,
   solved                      boolean DEFAULT FALSE,
-  solved_by                   text,
+  solved_by_name              text,
+  solved_by_id                text,
   created_at                  timestamp,
   updated_at                  timestamp
+);
+
+CREATE TABLE random (
+  emojinary                   text PRIMARY KEY,
+  hint                        text,
+  answer                      text
 );
 
 INSERT INTO team (id, user_id, slack_integration_token)
