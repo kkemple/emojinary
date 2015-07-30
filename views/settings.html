@@ -32,21 +32,18 @@
       {{/if}}
     </form>
   </div>
-  {{#unless user.active}}
-    <div class="setting">
-      <form action="/settings/account" data-id="{{ user.id }}" class="account-removal">
-        <legend>Upgrade to Pro</legend>
-        <button type="submit">Upgrade Account</button>
-      </form>
-    </div>
-  {{else}}
-    <div class="setting">
-      <form action="/settings/account" data-id="{{ user.id }}" class="account-removal">
-        <legend>Cancel Pro Account</legend>
-        <button type="submit" class="cancel-pro">Cancel Pro</button>
-      </form>
-    </div>
-  {{/unless}}
+  <div class="setting upgrade {{#if user.active}} inactive {{/if}}">
+    <form action="/settings/account/upgrade" data-id="{{ user.id }}" class="account-upgrade">
+      <legend>Upgrade to Pro ($5/Month)</legend>
+      <button type="submit">Upgrade Account</button>
+    </form>
+  </div>
+  <div class="setting downgrade {{#unless user.active}} inactive {{/unless}}">
+    <form action="/settings/account/downgrade" data-id="{{ user.id }}" class="account-downgrade">
+      <legend>Cancel Pro Account</legend>
+      <button type="submit" class="cancel-pro">Cancel Pro</button>
+    </form>
+  </div>
   <div class="setting">
     <form action="/settings/account" data-id="{{ user.id }}" class="account-removal">
       <legend>Danger Zone</legend>

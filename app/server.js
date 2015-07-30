@@ -4,6 +4,7 @@ import cbRedis from 'catbox-redis';
 import handlebars from 'handlebars';
 import Hapi from 'hapi';
 
+import logger from '../lib/logger';
 import routes from './routes';
 import Team from '../models/team';
 
@@ -49,6 +50,14 @@ server.ext('onPreHandler', (request, reply) => {
         reply(`Whoa! Token mismatch!`);
         return;
       }
+
+      logger.info('POST :: /emojinary', {
+        query: request.query,
+        payload: request.payload,
+        method: request.method,
+        params: request.params,
+        team: team.toJSON()
+      });
 
       request.team = team;
       reply.continue();

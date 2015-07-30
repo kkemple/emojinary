@@ -1,11 +1,18 @@
-/* global jQuery, emojify */
+/* global jQuery, emojify, StripeCheckout */
 
 (function ($, window) {
 
-  var showErrorMessage = function (message) {
+  var stripe = StripeCheckout.configure({
+    key: 'pk_test_3fp2fgX3FeTR1BHznzO3FRrm',
+    image: '/images/emoji/moneybag.png',
+    amount: 500,
+    description: 'Emojinary! Pro'
+  });
+
+  var showMessage = function (message, isError) {
     var $body = $('body');
     var $message = $('<div/>', {
-      'class': 'message error',
+      'class': 'message ' + ((isError) ? 'error' : ''),
       text: message
     });
     var $closeMessage = $('<a/>', {
@@ -69,7 +76,7 @@
         $button.text(origButtonText);
         $button.prop('disabled', false);
 
-        showErrorMessage(xhr.responseJSON.error + ': ' + xhr.responseJSON.error);
+        showMessage(xhr.responseJSON.error + ': ' + xhr.responseJSON.error, true);
         $('body').scrollTop(0);
       });
     });
@@ -108,7 +115,7 @@
         $button.text(origButtonText);
         $button.prop('disabled', false);
 
-        showErrorMessage(xhr.responseJSON.error + ': ' + xhr.responseJSON.error);
+        showMessage(xhr.responseJSON.error + ': ' + xhr.responseJSON.error, true);
         $('body').scrollTop(0);
       });
     });
@@ -145,9 +152,93 @@
         $button.text(origButtonText);
         $button.prop('disabled', false);
 
-        showErrorMessage(xhr.responseJSON.error + ': ' + xhr.responseJSON.error);
+        showMessage(xhr.responseJSON.error + ': ' + xhr.responseJSON.error, true);
         $('body').scrollTop(0);
       });
+    });
+
+    $('form.account-upgrade').on('submit', function (e) {
+      e.preventDefault();
+
+      var $form = $(this);
+      var $button = $form.children('button[type="submit"]');
+
+      $button.prop('disabled', true);
+
+      stripe.open({
+        token: function(token) {
+          // Use the token to create the charge with a server-side script.
+          // You can access the token ID with `token.id`
+          $.ajax({
+            url: $form.attr('action'),
+            method: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({
+              team_id: $form.attr('data-id'),
+              email: token.email,
+              stripe_token: token.id
+            })
+          })
+          .done(function (response) {
+            stripe.close();
+            $button.prop('disabled', false);
+
+            showMessage(response);
+            $('body').scrollTop(0);
+
+            $form
+              .parent()
+              .toggleClass('inactive')
+                .siblings('.downgrade')
+                .toggleClass('inactive');
+
+          })
+          .fail(function (xhr) {
+            $button.prop('disabled', false);
+            stripe.close();
+
+            showMessage(xhr.responseJSON.error + ': ' + xhr.responseJSON.error, true);
+            $('body').scrollTop(0);
+          });
+        }
+      });
+    });
+
+    $('form.account-downgrade').on('submit', function (e) {
+      e.preventDefault();
+
+      var $form = $(this);
+      var $button = $form.children('button[type="submit"]');
+
+      $button.prop('disabled', true);
+
+      $.ajax({
+          url: $form.attr('action'),
+          method: 'POST',
+          contentType: 'application/json',
+          data: JSON.stringify({
+            team_id: $form.attr('data-id')
+          })
+        })
+        .done(function (response) {
+          $button.prop('disabled', false);
+
+          showMessage(response);
+          $('body').scrollTop(0);
+
+          $form
+            .parent()
+            .toggleClass('inactive')
+              .siblings('.upgrade')
+              .toggleClass('inactive');
+        })
+        .fail(function (xhr) {
+          $button.prop('disabled', false);
+          stripe.close();
+
+          showMessage(xhr.responseJSON.error + ': ' + xhr.responseJSON.error, true);
+          $('body').scrollTop(0);
+        });
     });
 
     emojify.setConfig({

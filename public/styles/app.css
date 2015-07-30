@@ -59,6 +59,7 @@ div.message a {
   color: #ffffff;
   font-weight: 500;
   text-decoration: none;
+  cursor: pointer !important;
 }
 
 div.message a:hover {
@@ -178,6 +179,23 @@ header .account .account-menu ul li a:hover {
   background: #f7f7f7;
 }
 
+section .call-to-action {
+  text-align: center;
+}
+
+section .call-to-action a {
+  background-color: #9b59b6;
+  color: #ffffff !important;
+  padding: 10px 14px;
+  text-transform: uppercase;
+  transition: background-color 0.3s linear;
+}
+
+section .call-to-action a:hover {
+  background-color: #79458e;
+  color: #ffffff !important;
+}
+
 section[role="main"] {
   display: flex;
   flex: 2;
@@ -247,22 +265,6 @@ section.pitch .slash-commands .slash-command {
   margin-bottom: 75px;
 }
 
-section .call-to-action {
-  text-align: center;
-}
-
-section .call-to-action a {
-  background-color: #9b59b6;
-  color: #ffffff !important;
-  padding: 10px 14px;
-  text-transform: uppercase;
-  transition: background-color 0.3s linear;
-}
-
-section .call-to-action a:hover {
-  background-color: #79458e;
-  color: #ffffff !important;
-}
 
 section.wrapper.pricing {
   margin: auto;
@@ -414,9 +416,12 @@ section.settings .setting form legend {
   width: 100%;
 }
 
+section.settings .setting.inactive {
+  display: none;
+}
+
 section.wrapper {
   margin: 0 auto 60px;
-  max-width: 800px;
   padding: 0 20px;
 }
 
@@ -428,8 +433,4 @@ section.wrapper a {
 
 section.wrapper a:hover {
   color: #297CB3;
-}
-
-section.wrapper.landing {
-  max-width: 600px;
 }

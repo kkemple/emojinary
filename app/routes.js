@@ -63,6 +63,16 @@ export default [
   },
   {
     method: 'POST',
+    path: '/settings/account/upgrade',
+    config: configs.upgradeAccount
+  },
+  {
+    method: 'POST',
+    path: '/settings/account/downgrade',
+    config: configs.downgradeAccount
+  },
+  {
+    method: 'POST',
     path: '/emojinary',
     config: configs.slashCommand
   }

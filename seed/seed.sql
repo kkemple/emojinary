@@ -2,8 +2,10 @@ CREATE TABLE team (
   id                          text PRIMARY KEY,
   user_id                     text,
   user_name                   text,
+  email                       text,
   avatar                      text,
   active                      boolean DEFAULT TRUE,
+  stripe_id                   text,
   slack_integration_token     text,
   slack_webhook_url           text,
   created_at                  timestamp,
@@ -28,4 +30,5 @@ CREATE TABLE emojinary (
   updated_at                  timestamp
 );
 
-INSERT INTO team (id, user_id, slack_integration_token) VALUES ('T001', 'test', 'test');
+INSERT INTO team (id, user_id, slack_integration_token)
+VALUES ('T001', 'test', 'test');

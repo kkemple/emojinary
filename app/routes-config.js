@@ -108,6 +108,30 @@ export default {
     handler: auth.validate(handlers.updateSlackWebhookUrl)
   },
 
+  upgradeAccount: {
+    tags: ['api', 'auth', 'settings', 'account'],
+    description: 'Endpoint for upgrading to emojinary! pro account',
+    validate: {
+      payload: {
+        team_id: joi.string().required(),
+        email: joi.string().required(),
+        stripe_token: joi.string().required()
+      }
+    },
+    handler: auth.validate(handlers.upgradeAccount)
+  },
+
+  downgradeAccount: {
+    tags: ['api', 'auth', 'settings', 'account'],
+    description: 'Endpoint for downgrading from emojinary! pro account',
+    validate: {
+      payload: {
+        team_id: joi.string().required()
+      }
+    },
+    handler: auth.validate(handlers.downgradeAccount)
+  },
+
   deleteAccount: {
     tags: ['api', 'danger', 'auth', 'settings', 'account'],
     description: 'Endpoint for removing an emojinary! account',
