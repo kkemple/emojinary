@@ -318,14 +318,14 @@ export default {
             });
           });
         break;
-        case 'quit':
+        case 'forfeit':
           if (!request.team.get('active')) {
             reply(`Upgrade to unlock more slash commands! <http://emojinary.releasable.io>`);
             return;
           }
 
           emojinary
-            .quit(request.payload, request.team)
+            .forfeit(request.payload, request.team)
             .then((response) => {
               reply(response)
                 .type('text/plain');
