@@ -221,7 +221,8 @@ export default {
 
     switch (userCommand.action) {
       case 'new':
-        emojinary.create(userCommand, request.payload, request.team)
+        emojinary
+          .create(userCommand, request.payload, request.team)
           .then((response) => {
             reply(response)
               .type('text/plain');
@@ -241,8 +242,41 @@ export default {
             });
           });
         break;
+      case 'random':
+
+        if (!request.team.get('active')) {
+          reply(`Upgrade to unlock more slash commands! <http://emojinary.releasable.io>`);
+          return;
+        }
+
+        emojinary
+          .random()
+          .then((random) => {
+            emojinary
+              .create(random.toJSON(), request.payload, request.team)
+              .then((response) => {
+                reply(response)
+                  .type('text/plain');
+
+                logger.info('completed slash command', {
+                  payload: request.payload,
+                  parsedCommand: userCommand,
+                  response: response
+                });
+              })
+              .catch((response) => {
+                reply(response)
+                  .type('text/plain');
+
+                logger.error('error completing slash command', {
+                  error: response
+                });
+              });
+          });
+        break;
       case 'hint':
-        emojinary.hint(request.payload)
+        emojinary
+          .hint(request.payload)
           .then((response) => {
             reply(response)
               .type('text/plain');
@@ -263,7 +297,89 @@ export default {
           });
         break;
       case 'solve':
-        emojinary.solve(userCommand.answer, request.payload, request.team)
+        emojinary
+          .solve(userCommand.answer, request.payload, request.team)
+          .then((response) => {
+            reply(response)
+              .type('text/plain');
+
+            logger.info('completed slash command', {
+              payload: request.payload,
+              parsedCommand: userCommand,
+              response: response
+            });
+          })
+          .catch((response) => {
+            reply(response)
+              .type('text/plain');
+
+            logger.error('error completing slash command', {
+              error: response
+            });
+          });
+        break;
+        case 'quit':
+          if (!request.team.get('active')) {
+            reply(`Upgrade to unlock more slash commands! <http://emojinary.releasable.io>`);
+            return;
+          }
+
+          emojinary
+            .quit(request.payload, request.team)
+            .then((response) => {
+              reply(response)
+                .type('text/plain');
+
+              logger.info('completed slash command', {
+                payload: request.payload,
+                parsedCommand: userCommand,
+                response: response
+              });
+            })
+            .catch((response) => {
+              reply(response)
+                .type('text/plain');
+
+              logger.error('error completing slash command', {
+                error: response
+              });
+            });
+          break;
+      case 'stats':
+        if (!request.team.get('active')) {
+          reply(`Upgrade to unlock more slash commands! <http://emojinary.releasable.io>`);
+          return;
+        }
+
+        emojinary
+          .stats(userCommand.teamMember, request.payload)
+          .then((response) => {
+            reply(response)
+              .type('text/plain');
+
+            logger.info('completed slash command', {
+              payload: request.payload,
+              parsedCommand: userCommand,
+              response: response
+            });
+          })
+          .catch((response) => {
+            reply(response)
+              .type('text/plain');
+
+            logger.error('error completing slash command', {
+              error: response
+            });
+          });
+        break;
+      case 'list':
+        if (!request.team.get('active')) {
+          reply(`Upgrade to unlock more slash commands! <http://emojinary.releasable.io>`);
+          return;
+        }
+
+        emojinary
+          .list(request.payload)
           .then((response) => {
             reply(response)
               .type('text/plain');
@@ -284,7 +400,8 @@ export default {
           });
         break;
       default:
-        emojinary.current(request.payload)
+        emojinary
+          .current(request.payload)
           .then((response) => {
             reply(response)
               .type('text/plain');

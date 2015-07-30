@@ -15,7 +15,9 @@ CREATE TABLE team (
 CREATE TABLE user_stats (
   id                          text PRIMARY KEY,
   attempts                    integer,
-  solved                      integer
+  solves                      integer,
+  forfiets                    integer,
+  creates                     integer
 );
 
 CREATE TABLE emojinary (
