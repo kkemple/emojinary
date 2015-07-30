@@ -28,10 +28,10 @@ export default {
     handler: auth.validate(handlers.setup)
   },
 
-  pricing: {
+  signup: {
     tags: ['static'],
     description: 'Pricing chart',
-    handler: handlers.pricing
+    handler: handlers.signup
   },
 
   faq: {

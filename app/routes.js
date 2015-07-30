@@ -18,8 +18,8 @@ export default [
   },
   {
     method: 'GET',
-    path: '/pricing',
-    config: configs.pricing
+    path: '/signup',
+    config: configs.signup
   },
   {
     method: 'GET',

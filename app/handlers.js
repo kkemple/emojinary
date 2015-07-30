@@ -39,7 +39,7 @@ export default {
     });
   },
 
-  pricing (request, reply) {
+  signup (request, reply) {
     logger.info(`GET :: ${request.path}`, {
       message: request.session.get('message'),
       errorMessage: request.session.get('errorMessage'),
@@ -47,7 +47,7 @@ export default {
       user: request.session.get('user')
     });
 
-    reply.view('pricing', {
+    reply.view('signup', {
       message: request.session.get('message', true),
       errorMessage: request.session.get('errorMessage', true),
       loggedIn: request.session.get('loggedIn'),
