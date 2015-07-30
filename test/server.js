@@ -1,6 +1,6 @@
 import chai from 'chai';
 
-import server from '../lib/server';
+import server from '../app/server';
 
 const expect = chai.expect;
 
