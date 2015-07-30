@@ -331,6 +331,10 @@ section.pricing .pricing-table ul li code {
   text-transform: none;
 }
 
+section.setup {
+  max-width: 1100px;
+}
+
 section.setup h2 {
   border-bottom: 2px solid #9b59b6;
   color: #9b59b6;
