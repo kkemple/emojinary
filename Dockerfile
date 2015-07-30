@@ -8,11 +8,17 @@ RUN yum install -y npm
 # Bundle app source
 COPY . /src
 
-# Install app dependencies
-RUN cd /src; npm install
-
-EXPOSE  8080
-
 WORKDIR /src
+
+# Install app dependencies
+RUN npm install
+
+# create log files
+RUN mkdir logs
+RUN touch logs/info.log
+RUN touch logs/error.log
+
+#expose port
+EXPOSE  8080
 
 CMD ["node", "index.js"]

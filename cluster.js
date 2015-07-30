@@ -1,4 +1,3 @@
-require('newrelic');
 var cluster = require('cluster');
 
 if (cluster.isMaster) {
