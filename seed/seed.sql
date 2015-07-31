@@ -14,10 +14,10 @@ CREATE TABLE team (
 
 CREATE TABLE user_stats (
   id                          text PRIMARY KEY,
-  attempts                    integer,
-  solves                      integer,
-  forfiets                    integer,
-  creates                     integer
+  attempts                    integer DEFAULT 0,
+  solves                      integer DEFAULT 0,
+  forfiets                    integer DEFAULT 0,
+  creates                     integer DEFAULT 0
 );
 
 CREATE TABLE emojinary (
