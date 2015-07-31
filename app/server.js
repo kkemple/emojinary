@@ -33,35 +33,56 @@ server.views({
 });
 
 server.ext('onPreHandler', (request, reply) => {
-  if (request.path !== '/emojinary') {
-    reply.continue();
+
+  if (request.path === '/emojinary') {
+    new Team({ id: request.payload.team_id })
+      .fetch()
+      .then((team) => {
+        if (!team) {
+          reply(`Whoa! Seems your team isn't set up yet! <http://emojinary.releasable.io>`);
+          return;
+        }
+
+        if (team.get('slack_integration_token') !== request.payload.token) {
+          reply(`Whoa! Token mismatch!`);
+          return;
+        }
+
+        logger.info('POST :: /emojinary', {
+          query: request.query,
+          payload: request.payload,
+          method: request.method,
+          params: request.params,
+          team: team.toJSON()
+        });
+
+        request.team = team;
+        reply.continue();
+      });
+
     return;
   }
 
-  new Team({ id: request.payload.team_id })
-    .fetch()
-    .then((team) => {
-      if (!team) {
-        reply(`Whoa! Seems your team isn't set up yet! <http://emojinary.releasable.io>`);
-        return;
-      }
+  if (request.session.get('user')) {
+    const user = request.session.get('user');
 
-      if (team.get('slack_integration_token') !== request.payload.token) {
-        reply(`Whoa! Token mismatch!`);
-        return;
-      }
+    new Team({ id: user.id })
+      .fetch()
+      .then((team) => request.session.set({ user: team.toJSON() }))
+      .then(() => logger.info('session updated for user', {
+        team: request.session.get('user')
+      }))
+      .then(() => reply.continue())
+      .catch((e) => logger.error('failed to update session for user', {
+        error: e,
+        team: user
+      }));
 
-      logger.info('POST :: /emojinary', {
-        query: request.query,
-        payload: request.payload,
-        method: request.method,
-        params: request.params,
-        team: team.toJSON()
-      });
+    return;
+  }
 
-      request.team = team;
-      reply.continue();
-    });
+  reply.continue();
+  return;
 });
 
 server.ext('onPreResponse', (request, reply) => {
