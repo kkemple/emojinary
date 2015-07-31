@@ -3,7 +3,7 @@
 (function ($, window) {
 
   var stripe = StripeCheckout.configure({
-    key: 'pk_test_3fp2fgX3FeTR1BHznzO3FRrm',
+    key: 'pk_live_ffZYXmsTCRNHeuRxYtCJY3Vp',
     image: '/images/emoji/moneybag.png',
     amount: 500,
     description: 'Emojinary! Pro'
