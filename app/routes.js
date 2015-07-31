@@ -28,6 +28,11 @@ export default [
   },
   {
     method: 'GET',
+    path: '/tos',
+    config: configs.tos
+  },
+  {
+    method: 'GET',
     path: '/settings',
     config: configs.settings
   },

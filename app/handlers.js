@@ -71,6 +71,22 @@ export default {
     });
   },
 
+  tos (request, reply) {
+    logger.info(`GET :: ${request.path}`, {
+      message: request.session.get('message'),
+      errorMessage: request.session.get('errorMessage'),
+      loggedIn: request.session.get('loggedIn'),
+      user: request.session.get('user')
+    });
+
+    reply.view('tos', {
+      message: request.session.get('message', true),
+      errorMessage: request.session.get('errorMessage', true),
+      loggedIn: request.session.get('loggedIn'),
+      user: request.session.get('user')
+    });
+  },
+
   settings (request, reply) {
     logger.info(`GET :: ${request.path}`, {
       message: request.session.get('message'),

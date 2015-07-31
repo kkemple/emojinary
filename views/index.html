@@ -72,7 +72,7 @@
       </div>
 
       <div class="slash-command">
-        <h4>/emojinary random</h4>
+        <h4>/emojinary random*</h4>
         <p>
           Use the <code>random</code> command to pick an emojinary from out database.
         </p>
@@ -82,7 +82,7 @@
       </div>
 
       <div class="slash-command">
-        <h4>/emojinary forfeit</h4>
+        <h4>/emojinary forfeit*</h4>
         <p>
           Use the <code>forfeit</code> command when you just can't figure it out.
         </p>
@@ -92,7 +92,7 @@
       </div>
 
       <div class="slash-command">
-        <h4>/emojinary stats</h4>
+        <h4>/emojinary stats*</h4>
         <p>
           Use the <code>stats</code> command to see how you and your teammates are doing!
           <ul class="options">
@@ -105,7 +105,7 @@
       </div>
 
       <div class="slash-command">
-        <h4>/emojinary list</h4>
+        <h4>/emojinary list*</h4>
         <p>
           Use the <code>list</code> command to view all the emojinary you and your team have solved.
         </p>
@@ -114,6 +114,9 @@
         </p>
       </div>
     </div>
+    <p>
+      <small>* Only available with Pro plan. {{#unless user.active}}Upgrade to Pro by going to your settings.{{/unless}}</small>
+    </p>
     {{#unless loggedIn}}
       <div class="call-to-action">
         <a href="/login">Integrate with Slack</a>

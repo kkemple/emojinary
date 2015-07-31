@@ -40,6 +40,12 @@ export default {
     handler: handlers.faq
   },
 
+  tos: {
+    tags: ['static'],
+    description: 'Terms of service',
+    handler: handlers.tos
+  },
+
   settings: {
     tags: ['static', 'auth', 'settings'],
     description: 'FAQs for emojinary',

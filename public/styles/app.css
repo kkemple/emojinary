@@ -14,7 +14,8 @@ body {
 
 footer {
   color: #bbbbbb;
-  height: 40px;
+  height: 70px;
+  line-height: 30px;
   text-align: center;
 }
 
@@ -258,9 +259,23 @@ section .call-to-action a:hover {
   color: #ffffff !important;
 }
 
+section.faq .pearl p {
+  line-height: 30px;
+}
+
+section.faq .pearl {
+  margin-bottom: 90px;
+}
+
 section.pitch h2 {
   font-size: 48px;
   margin: 60px auto 75px;
+  text-align: center;
+}
+
+section.pitch > p {
+  color: #9b59b6;
+  margin-top: 90px;
   text-align: center;
 }
 
@@ -407,11 +422,15 @@ section.pricing .pricing-table ul li code {
   text-transform: none;
 }
 
-section.setup {
+section.setup,
+section.tos,
+section.faq {
   max-width: 800px;
 }
 
-section.setup h2 {
+section.setup h2,
+section.tos h2,
+section.faq h2 {
   border-bottom: 2px solid #9b59b6;
   color: #9b59b6;
   font-size: 36px;
@@ -419,7 +438,9 @@ section.setup h2 {
   padding: 0 0 15px;
 }
 
-section.setup h3 {
+section.setup h3,
+section.tos h3,
+section.faq h3 {
   color: #9b59b6;
   font-size: 28px;
 }
