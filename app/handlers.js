@@ -19,7 +19,8 @@ export default {
       message: request.session.get('message', true),
       errorMessage: request.session.get('errorMessage', true),
       loggedIn: request.session.get('loggedIn'),
-      user: request.session.get('user')
+      user: request.session.get('user'),
+      noBorder: true
     });
   },
 

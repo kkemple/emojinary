@@ -35,47 +35,48 @@
         <a href="#" class="close-message">x</a>
       </div>
     {{/if}}
-    <header>
+    <header class="{{#if noBorder}}no-border{{/if}}">
       <h1 class="branding"><a href="/">emojinary!</a></h1>
       {{#unless loggedIn}}
-      <nav>
-        <ul>
-          <li>
-            <a href="/signup">Sign Up</a>
-          </li>
-          <!-- <li><a href="/faq">FAQ</a></li> -->
-          <li>
-            <a href="/login">Login</a>
-          </li>
-        </ul>
-      </nav>
-      {{else}}
-      <div class="account">
-        {{ user.user_name }}
-        <a href="/settings" title="account-menu">
-          <img src="{{ user.avatar }}" class="avatar" alt="profile picture" />
-        </a>
-
-        <div class="account-menu inactive">
+        <nav>
           <ul>
             <li>
-              <a href="/setup">Setup</a>
+              <a href="/signup">Sign Up</a>
             </li>
+            <!-- <li><a href="/faq">FAQ</a></li> -->
             <li>
-              <a href="/settings">Settings</a>
-            </li>
-            <li>
-              <a href="/logout?team_id={{ user.id }}">Logout</a>
-            </li>
-            <li>
-              <a href="mailto:emojinary.support@releasable.io">
-                Support
-              </a>
+              <a href="/login">Login</a>
             </li>
           </ul>
+        </nav>
+      {{else}}
+        <div class="account">
+          {{ user.user_name }}
+          <a href="/settings" title="account-menu">
+            <img src="{{ user.avatar }}" class="avatar" alt="profile picture" />
+          </a>
+
+          <div class="account-menu inactive">
+            <ul>
+              <li>
+                <a href="/setup">Setup</a>
+              </li>
+              <li>
+                <a href="/settings">Settings</a>
+              </li>
+              <li>
+                <a href="/logout?team_id={{ user.id }}">Logout</a>
+              </li>
+              <li>
+                <a href="mailto:emojinary.support@releasable.io">
+                  Support
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
       {{/unless}}
+      <a class="generator-link" href="/generator"><small>Generator</small></a>
     </header>
     <section role="main">
       {{{ content }}}

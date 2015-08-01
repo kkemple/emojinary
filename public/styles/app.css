@@ -12,7 +12,7 @@ body {
   width: 100vw;
 }
 
-button {
+button, .generator-link {
   background-color: #9b59b6;
   border: none;
   color: #ffffff;
@@ -22,8 +22,14 @@ button {
   transition: background-color 0.3s linear;
 }
 
-button:hover {
+button:hover, .generator-link:hover {
   background-color: #79458e;
+  color: #ffffff;
+}
+
+.generator-link {
+  align-items: center;
+  display: flex;
 }
 
 footer {
@@ -95,6 +101,10 @@ header {
   justify-content: space-between;
 }
 
+header.no-border {
+  border-bottom: none;
+}
+
 header a {
   color: #9b59b6;
   text-decoration: none;
@@ -117,6 +127,7 @@ header nav {
   align-items: center;
   display: flex;
   justify-content: center;
+  margin-left: auto;
   padding: 15px;
 }
 
@@ -140,7 +151,7 @@ header nav ul li:last-child {
 header .account {
   align-items: center;
   display: flex;
-  margin-left: 30px;
+  margin-left: auto;
   position: relative;
 }
 
