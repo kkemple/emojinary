@@ -38,6 +38,11 @@ export default [
   },
   {
     method: 'GET',
+    path: '/generator',
+    config: configs.generator
+  },
+  {
+    method: 'GET',
     path: '/login',
     config: configs.login
   },

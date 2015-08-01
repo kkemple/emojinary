@@ -34,6 +34,11 @@ server.views({
 
 server.ext('onPreHandler', (request, reply) => {
 
+  if (/(images|scripts|styles)/.test(request.path)) {
+    reply.continue();
+    return;
+  }
+
   if (request.path === '/emojinary') {
     new Team({ id: request.payload.team_id })
       .fetch()

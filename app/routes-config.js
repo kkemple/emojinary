@@ -52,6 +52,12 @@ export default {
     handler: auth.validate(handlers.settings)
   },
 
+  generator: {
+    tags: ['static', 'generator'],
+    description: 'Generate slash commands for emojinary',
+    handler: handlers.generator
+  },
+
   login: {
     tags: ['oauth', 'slack', 'auth'],
     description: 'Start of Slack Oauth flow',

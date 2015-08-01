@@ -39,6 +39,22 @@ export default {
     });
   },
 
+  generator (request, reply) {
+    logger.info(`GET :: ${request.path}`, {
+      message: request.session.get('message'),
+      errorMessage: request.session.get('errorMessage'),
+      loggedIn: request.session.get('loggedIn'),
+      user: request.session.get('user')
+    });
+
+    reply.view('generator', {
+      message: request.session.get('message', true),
+      errorMessage: request.session.get('errorMessage', true),
+      loggedIn: request.session.get('loggedIn'),
+      user: request.session.get('user')
+    });
+  },
+
   signup (request, reply) {
     logger.info(`GET :: ${request.path}`, {
       message: request.session.get('message'),

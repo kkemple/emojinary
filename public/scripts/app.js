@@ -255,5 +255,79 @@
     });
 
     emojify.run();
+
+    var $generator = $('section.generator .widget');
+    if ($generator.length) {
+      var selectedEmoji = [];
+
+      var $emojiList = $generator.children('.emoji-list');
+      var $hint = $generator.children('.hint');
+      var $answer = $generator.children('.answer');
+      var $result = $generator.children('.result');
+      var $slashCommand = $generator.children('.slash-command');
+      var $generate = $result.children('.generate');
+      var $set = $result.children('.set');
+      var $undo = $result.children('.undo');
+      var $reset = $result.children('.reset');
+
+      var $emoji = window.emojiList.map(function(e) {
+        return $('<img />', {
+          src: '/images/emoji/' + e + '.png',
+          'data-emoji': e,
+          'title': e,
+          'class': 'emoji'
+        });
+      });
+
+      $slashCommand.on('click', '.close', function (e) {
+        e.preventDefault();
+
+        $slashCommand
+          .addClass('inactive')
+          .children('span')
+          .text('');
+      });
+
+      $undo.on('click', function (e) {
+        e.preventDefault();
+
+        selectedEmoji.pop();
+        $set.text(selectedEmoji.join(' '));
+        emojify.run($result[0]);
+      });
+
+      $reset.on('click', function (e) {
+        e.preventDefault();
+
+        selectedEmoji.length = 0;
+        $set.text('');
+      });
+
+      $generate.on('click', function (e) {
+        e.preventDefault();
+        var slashCommand = '/emojinary new ' +
+          'emojinary=[' + selectedEmoji.join(' ') + '] ' +
+          'hint=[' + $hint.val() + '] ' +
+          'answer=[' + $answer.val() + ']';
+
+        $slashCommand
+          .removeClass('inactive')
+          .children('span')
+          .text(slashCommand);
+      });
+
+      $emojiList
+        .append($emoji)
+        .on('click', '.emoji', function (e) {
+          e.preventDefault();
+
+          var $current = $(this);
+
+          selectedEmoji.push(':' + $current.attr('data-emoji') + ':');
+          $set.text(selectedEmoji.join(' '));
+
+          emojify.run($result[0]);
+        });
+    }
   });
 })(jQuery, this, this.document);
