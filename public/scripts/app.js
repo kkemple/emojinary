@@ -260,6 +260,7 @@
     if ($generator.length) {
       var selectedEmoji = [];
 
+      var $filter = $generator.children('.filter').children('input');
       var $emojiList = $generator.children('.emoji-list');
       var $hint = $generator.children('.hint');
       var $answer = $generator.children('.answer');
@@ -286,6 +287,28 @@
           .addClass('inactive')
           .children('span')
           .text('');
+      });
+
+      $filter.on('keyup', function (e) {
+        e.preventDefault();
+
+        var $target = $(this);
+
+        if ($target.val() === '') {
+          $emoji.forEach(function ($e) {
+            $e.show();
+          });
+
+          return;
+        }
+
+        $emoji.forEach(function ($e) {
+          var emojiString = $e.attr('data-emoji');
+          var pattern = $target.val().toLowerCase();
+
+          if (emojiString.indexOf(pattern) !== -1) { $e.show(); }
+          else { $e.hide(); }
+        });
       });
 
       $undo.on('click', function (e) {

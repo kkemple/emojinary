@@ -367,6 +367,7 @@ section.generator .widget .emoji-list {
   justify-content: flex-start;
   margin-bottom: 30px;
   max-height: 400px;
+  min-width: 100%;
   overflow-y: auto;
 }
 
