@@ -257,8 +257,7 @@ export default {
         emojinary
           .create(userCommand, request.payload, request.team)
           .then((response) => {
-            reply(response)
-              .type('text/plain');
+            reply(response).type('text/plain');
 
             logger.info('completed slash command', {
               payload: request.payload,
@@ -267,8 +266,7 @@ export default {
             });
           })
           .catch((response) => {
-            reply(response)
-              .type('text/plain');
+            reply(response).type('text/plain');
 
             logger.error('error completing slash command', {
               error: response
@@ -283,13 +281,12 @@ export default {
         }
 
         emojinary
-          .random()
+          .random(request.team)
           .then((random) => {
             emojinary
               .create(random.toJSON(), request.payload, request.team)
               .then((response) => {
-                reply(response)
-                  .type('text/plain');
+                reply(response).type('text/plain');
 
                 logger.info('completed slash command', {
                   payload: request.payload,
@@ -298,8 +295,7 @@ export default {
                 });
               })
               .catch((response) => {
-                reply(response)
-                  .type('text/plain');
+                reply(response).type('text/plain');
 
                 logger.error('error completing slash command', {
                   error: response
@@ -311,8 +307,7 @@ export default {
         emojinary
           .hint(request.payload)
           .then((response) => {
-            reply(response)
-              .type('text/plain');
+            reply(response).type('text/plain');
 
             logger.info('completed slash command', {
               payload: request.payload,
@@ -321,8 +316,7 @@ export default {
             });
           })
           .catch((response) => {
-            reply(response)
-              .type('text/plain');
+            reply(response).type('text/plain');
 
             logger.error('error completing slash command', {
               error: response
@@ -333,8 +327,7 @@ export default {
         emojinary
           .solve(userCommand.answer, request.payload, request.team)
           .then((response) => {
-            reply(response)
-              .type('text/plain');
+            reply(response).type('text/plain');
 
             logger.info('completed slash command', {
               payload: request.payload,
@@ -343,8 +336,7 @@ export default {
             });
           })
           .catch((response) => {
-            reply(response)
-              .type('text/plain');
+            reply(response).type('text/plain');
 
             logger.error('error completing slash command', {
               error: response
@@ -387,8 +379,7 @@ export default {
         emojinary
           .stats(userCommand.teamMember, request.payload)
           .then((response) => {
-            reply(response)
-              .type('text/plain');
+            reply(response).type('text/plain');
 
             logger.info('completed slash command', {
               payload: request.payload,
@@ -397,8 +388,7 @@ export default {
             });
           })
           .catch((response) => {
-            reply(response)
-              .type('text/plain');
+            reply(response).type('text/plain');
 
             logger.error('error completing slash command', {
               error: response
@@ -414,8 +404,7 @@ export default {
         emojinary
           .list(request.payload)
           .then((response) => {
-            reply(response)
-              .type('text/plain');
+            reply(response).type('text/plain');
 
             logger.info('completed slash command', {
               payload: request.payload,
@@ -424,8 +413,7 @@ export default {
             });
           })
           .catch((response) => {
-            reply(response)
-              .type('text/plain');
+            reply(response).type('text/plain');
 
             logger.error('error completing slash command', {
               error: response
@@ -436,8 +424,7 @@ export default {
         emojinary
           .current(request.payload)
           .then((response) => {
-            reply(response)
-              .type('text/plain');
+            reply(response).type('text/plain');
 
             logger.info('completed slash command', {
               payload: request.payload,
@@ -446,8 +433,7 @@ export default {
             });
           })
           .catch((response) => {
-            reply(response)
-              .type('text/plain');
+            reply(response).type('text/plain');
 
             logger.error('error completing slash command', {
               error: response
